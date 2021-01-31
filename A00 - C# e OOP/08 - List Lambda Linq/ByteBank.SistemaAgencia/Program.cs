@@ -12,20 +12,14 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-<<<<<<< HEAD
 
             // One day I ll remember all this mess and laugh
 
-=======
->>>>>>> main
             ListaGenerica<int> idades = new ListaGenerica<int>();
             idades.Adicionar(5);
             idades.AdicionarVarios(84, 15, 21, 17, 20);
 
-<<<<<<< HEAD
             int idadeSoma = 0;
-=======
->>>>>>> main
             for (int i = 0; i < idades.Tamanho; i++)
             {
                 int idadeAtual = idades[i];

@@ -51,10 +51,7 @@
     <Compile Include="Estagiario.cs" />
     <Compile Include="ListaDeContaCorrente.cs" />
     <Compile Include="ListaDeObject.cs" />
-<<<<<<< HEAD
     <Compile Include="ListaGenerica.cs" />
-=======
->>>>>>> main
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

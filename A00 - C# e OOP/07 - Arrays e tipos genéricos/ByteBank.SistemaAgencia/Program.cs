@@ -12,6 +12,9 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
+
+            // One day I ll remember all this mess and laugh
+
             ListaGenerica<int> idades = new ListaGenerica<int>();
             idades.Adicionar(5);
             idades.AdicionarVarios(84, 15, 21, 17, 20);
