@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ByteBank.SistemaAgencia
 {
+<<<<<<< HEAD
     public class ListaGenerica<T>
     {
 
@@ -124,5 +125,9 @@ namespace ByteBank.SistemaAgencia
             }
         }
 
+=======
+    class ListaGenerica
+    {
+>>>>>>> main
     }
 }
