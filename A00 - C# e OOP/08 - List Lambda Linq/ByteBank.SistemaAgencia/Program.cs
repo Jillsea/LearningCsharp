@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using ByteBank.Modelos;
 using ByteBank.Modelos.Funcionarios;
+using ByteBank.SistemaAgencia.Comparadores;
+using ByteBank.SistemaAgencia.Extensões;
 
 namespace ByteBank.SistemaAgencia
 {
@@ -12,18 +14,53 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-
-            // One day I ll remember all this mess and laugh
-
-            ListaGenerica<int> idades = new ListaGenerica<int>();
-            idades.Adicionar(5);
-            idades.AdicionarVarios(84, 15, 21, 17, 20);
-
-            int idadeSoma = 0;
-            for (int i = 0; i < idades.Tamanho; i++)
+            var contas = new List<ContaCorrente>()
             {
-                int idadeAtual = idades[i];
+                new ContaCorrente(341,68541),
+                new ContaCorrente(741,65432),
+                new ContaCorrente(125,44157),
+                null,
+                new ContaCorrente(987,55468),
+                new ContaCorrente(774,74125),
+                null,
+                null,
+                new ContaCorrente(456,98787)
+            };
+
+            contas.Add(new ContaCorrente(777, 99999));
+
+            // Usa a implementação do IComparable
+            // contas.Sort();
+
+            //contas.Sort(new ComparadorContaCorrentePorAgencia());
+
+            // -----------------------------------------------
+               
+            // var listaSemNulos = new List<ContaCorrente>();
+               
+            // foreach (var conta in contas)
+            // {
+            //     if (conta!=null)
+            //     {
+            //         listaSemNulos.Add(conta);
+            //     }
+            // }
+               
+            // IEnumerable<ContaCorrente> contasNaoNulas =
+            //     contas.Where(conta => conta != null);
+
+
+            var contasReorganizadas = contas
+                .Where(conta => conta != null)
+                .OrderBy(conta => conta.Agencia);
+
+
+            foreach (var organizado in contasReorganizadas)
+            {
+                Console.WriteLine($"Agencia: {organizado.Agencia}, CC:{organizado.Numero}.");
             }
+
+            Console.WriteLine(int.MaxValue);
 
             Console.ReadLine();
         }
@@ -205,5 +242,110 @@ namespace ByteBank.SistemaAgencia
             Console.ReadLine();
         }
 
+        static void sextaAula()
+        {
+            var conta = new ContaCorrente(457, 77451);
+            conta.Depositar(77);
+
+            var gerenciador = new GerenciadorBonificacao();
+            var gerenciadores = new List<GerenciadorBonificacao>();
+
+            var numero = 5;
+            numero += 5;
+            Console.WriteLine(numero);
+
+            var resultado = SomarVarios(1, 2, 3, 4, 5);
+            Console.WriteLine(resultado);
+
+            Console.ReadLine();
+        }
+
+        static void setimaAula()
+        {
+            var idades = new List<int>();
+            idades.Add(5);
+
+            // idades.AddRange(new int[] { 84, 15, 21, 17, 20 });
+            // ListExtensoes.AddMany(idades, 21, 51, 32, 18, 37);
+            idades.AddMany(21, 23, 65, 29, 24, 47);
+
+
+            idades.AddMany(45, 54, 77, 98);
+
+
+
+            for (int i = 0; i < idades.Count; i++)
+            {
+                int idadeAtual = idades[i];
+                Console.WriteLine($"Posição [{i}]: {idadeAtual}");
+            }
+
+            idades.Remove(21);
+            Console.WriteLine();
+
+            for (int i = 0; i < idades.Count; i++)
+            {
+                int idadeAtual = idades[i];
+                Console.WriteLine($"Posição [{i}]: {idadeAtual}");
+            }
+
+            Console.WriteLine();
+
+
+
+            idades.Sort();
+
+            for (int i = 0; i < idades.Count; i++)
+            {
+                int idadeAtual = idades[i];
+                Console.WriteLine($"Posição [{i}]: {idadeAtual}");
+            }
+
+            Console.WriteLine();
+
+
+
+
+
+            List<string> nomes = new List<string>();
+            nomes.Add("Giorno");
+
+            // ListExtensoes.AddMany(nomes,"Joseph", "Jonathan", "Jotaro", "Josuke", "Jolyne", "Johnny");
+            nomes.AddMany("Joseph", "Jonathan", "Jotaro", "Josuke", "Jolyne", "Johnny");
+
+            for (int i = 0; i < nomes.Count; i++)
+            {
+                string nomeAtual = nomes[i];
+                Console.WriteLine($"Posição [{i}]: {nomeAtual}");
+            }
+
+            Console.WriteLine();
+
+            nomes.Sort();
+
+            for (int i = 0; i < nomes.Count; i++)
+            {
+                string nomeAtual = nomes[i];
+                Console.WriteLine($"Posição [{i}]: {nomeAtual}");
+            }
+
+            Console.WriteLine();
+
+
+
+            string guilherme = "Guilherme";
+            guilherme.TesteGenerico<int>();
+
+
+
+
+
+
+
+
+
+
+            Console.ReadLine();
+        }
     }
 }
