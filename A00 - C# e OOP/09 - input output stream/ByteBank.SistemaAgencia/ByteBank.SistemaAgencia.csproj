@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="00-AulasAnteriores.cs" />
+    <Compile Include="01-LidandoComStreamDiretamente.cs" />
+    <Compile Include="02-UsarStreamReader.cs" />
+    <Compile Include="03-CriandoCSV.cs" />
+    <Compile Include="04-EscritaBinaria.cs" />
+    <Compile Include="05-UsandoStreamDeEntradaConsole.cs" />
     <Compile Include="Comparadores\ComparadorContaCorrentePorAgencia.cs" />
     <Compile Include="Estagiario.cs" />
     <Compile Include="Extensões\ListExtensoes.cs" />
